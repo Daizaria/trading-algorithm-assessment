@@ -4,8 +4,11 @@ import messages.marketdata.*;
 import org.agrona.concurrent.UnsafeBuffer;
 import org.junit.Assert;
 import org.junit.Test;
+import messages.marketdata.MessageHeaderDecoder;
 
 import java.nio.ByteBuffer;
+
+import static com.sun.org.apache.xml.internal.serializer.utils.Utils.messages;
 
 public class EncodingDecodingTest {
 
@@ -70,7 +73,7 @@ public class EncodingDecodingTest {
         Assert.assertEquals(InstrumentStatus.CONTINUOUS, decoder.instrumentStatus());
         Assert.assertEquals(101L, bidBookDecoder.size());
         Assert.assertEquals(100L, bidBookDecoder.price());
-        //Assert.assertEquals(100L, decoder.askBook().next().size());
+        Assert.assertEquals(100L, decoder.askBook().next().size());
     }
 
 }
